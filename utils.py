@@ -1,10 +1,8 @@
 # coding: utf-8
 import torch
-import torchvision.transforms as transforms
 import torchvision.transforms.functional as TF
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
-from torchvision import datasets
 import numpy as np
 import pickle
 import os
@@ -280,7 +278,7 @@ def evaluation_euclidean_distance(train_labels, test_labels, train_bits, test_bi
 def eval_cos_dst(train_labels, test_labels, train_features, test_features, device, top=None):
 
     """
-    Both train and test features are l-2 normalized before calculate cosine distance/ dot product
+    Both train and test features are l_2 normalized before calculating cosine distance/ dot product
     :return:
     """
     num_test = test_features.size(0)
@@ -430,9 +428,6 @@ def indexing(features, codebooks, len_word):
     '''
 
     features_split = torch.stack(torch.split(features, len_word, dim=1), dim=0)
-    # features_split.shape:  (num_books, num_images, len_word)
-    # norm_features = F.normalize(features_split, dim=2)
-    # codewords_norm = F.normalize(codebooks, dim=1) #### can be moved out of the function?
     """
     since num_books * num_words can be huge, e.g. 8 * 256 for 64-bit;
     we index the samples in mini-batch
@@ -639,10 +634,8 @@ def PqDistRet_Ortho_euclidean(test_features, test_labels, train_labels, index_ta
 
     """
     To test our method without orthogonal codewords
-    add test features normalization compared with
-    PqDistRet_euclidean
-
-    return:
+    add test features normalization compared to
+    "PqDistRet_euclidean"
     """
 
     num_test = test_features.size(0)
@@ -854,14 +847,6 @@ def pr_cos(ranking_list, test_features, test_labels, train_labels, code_book, in
 
 def PqDistRet_Ortho2(test_features, test_labels, train_labels, index_table, mlp, len_word, num_book, device, top=None):
 
-    """
-    Only need to normalize the test_features
-    F.embeeding():
-            input: index_table
-            weights: softmax_score of query
-    return:
-    """
-
     num_test = test_features.size(0)
     AP = []
     top_p = []
@@ -906,13 +891,7 @@ def PqDistRet_Ortho2(test_features, test_labels, train_labels, index_table, mlp,
 
 def compute_topk(trainset, test_features, test_labels, train_labels, index_table, mlp, len_word, num_book, device, top=None):
 
-    """
-    Only need to normalize the test_features
-    F.embeeding():
-            input: index_table
-            weights: softmax_score of query
-    return:
-    """
+   
     dict0 = defaultdict(list)
     dict1 = defaultdict(list)
     num_test = test_features.size(0)
