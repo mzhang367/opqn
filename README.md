@@ -1,18 +1,19 @@
 # Orthonormal Product Quantization Network for Scalable Face Image Retrieval
-Pytorch implementation of "[Orthonormal Product Quantization Network for Scalable Face Image Retrieval](https://arxiv.org/abs/2107.00327) (OPQN)"
+Pytorch implementation of "[Orthonormal Product Quantization Network for Scalable Face Image Retrieval](https://arxiv.org/abs/2107.00327) (OPQN)".
 
 [Official version](https://doi.org/10.1016/j.patcog.2023.109671) is published in Pattern Recognition. Supplementary material can be found [there](https://drive.google.com/file/d/1XsmCeykToR8FFlSKi3D3vOK_BCa4Ekkd/view?usp=sharing). 
 
 # Introduction
 OPQN is a novel deep quantization method that produces compact binary codes for large-scale face image retrieval. The method employs **predefined orthonormal codewords** to increase quantization informativeness while reducing codeword redundancy. To maximize discriminability among identities in each quantization subspace for both the quantized and original features, a tailored loss function is utilized. Extensive experiments conducted on commonly-used face image datasets demonstrate that OPQN achieves state-of-the-art performance. The proposed orthonormal codewords consistently enhance both the models' standard retrieval performance and generalization ability. Furthermore, the method can also be applied to general image retrieval tasks, showcasing the broad superiority of the proposed codewords scheme and the applied learning metric. Overall, the proposed method provides a general framework for deep quantization-based image retrieval.
 
-# Results
-<img src="/figures/pr_curve1.png" alt="drawing" width="85%"/>
-<p></p>
-
 # Overall training procedure of OPQN
 <img src="/figures/overview.png" alt="drawing" width="85%"/>
 <p></p>
+
+# Results
+<img src="/figures/pr_three_all2.png" alt="drawing" width="100%"/>
+<p></p>
+<center> Performance measured by precision-recall curves: (a) 48-bit on FaceScrub, (b) 48-bit on CFW-60K, (c) 64-bit on VGGFace2.</center>
 
 # Usage
 ## Training
@@ -41,7 +42,6 @@ If you find the codes are useful to your research, please consider citing our PR
   year={2023},
   publisher={Elsevier}
 }
-
 ```
 # Related Projects
  \[1\] Deep Center-Based Dual-Constrained Hashing for Discriminative Face Image Retrieval [(DCDH)](https://github.com/mzhang367/DCDH-PyTorch)
