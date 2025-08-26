@@ -3,6 +3,9 @@ Pytorch implementation of "[Orthonormal Product Quantization Network for Scalabl
 
 [Official version](https://doi.org/10.1016/j.patcog.2023.109671) is published in Pattern Recognition. Supplementary material can be found [there](https://drive.google.com/file/d/1XsmCeykToR8FFlSKi3D3vOK_BCa4Ekkd/view?usp=sharing). 
 
+# Update [25/08/26]
+Release OPQN model checkpoints trained on VGGFace2 under four code lengths of 24/36/48/64-bit in the paper. You may download them via [Google Drive Link](https://drive.google.com/file/d/1iSy6-UsOHBg1kJJWBbnWdhqL1BU7iYj9/view?usp=sharing). 
+
 # Introduction
 OPQN is a novel deep quantization method that produces compact binary codes for large-scale face image retrieval. The method employs **predefined orthonormal codewords** to increase quantization informativeness while reducing codeword redundancy. To maximize discriminability among identities in each quantization subspace for both the quantized and original features, a tailored loss function is utilized. Extensive experiments conducted on commonly-used face image datasets demonstrate that OPQN achieves state-of-the-art performance. The proposed orthonormal codewords consistently enhance both the models' standard retrieval performance and generalization ability. Furthermore, the method can also be applied to general image retrieval tasks, showcasing the broad superiority of the proposed codewords scheme and the applied learning metric. Overall, the proposed method provides a general framework for deep quantization-based image retrieval.
 
